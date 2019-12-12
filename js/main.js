@@ -24,7 +24,7 @@ setInterval(()=>{
 		blocks.push({"x":createRandomX(),"y":40});
 	}
 	if (blocks.length >0) {
-	blocks = blocks.filter((x,i)=>blocks[i].y <550);
+	blocks = blocks.filter((x,i)=>blocks[i].y <530);
 
 	}
 	// console.log(blcks);
@@ -45,11 +45,12 @@ var myTimer = setInterval(()=>{
 	// blocks.length >0?console.log(blocks[0].y):""
 	for (var i = 0; i < blocks.length; i++) {
 		if (blocks[i].y >500) {
-			// console.log(data[0].x,blocks[i].x)
+			if (data[0].x == blocks[i].x) {
+				clearInterval(myTimer);
+				console.log("GAME OVER!");
+			}
 		}
-		if (data[0].x == blocks[i].x) {
-			// console.log("GAME OVER!")
-		}
+		
 	}
 	blocks = tempBlocks;
 	

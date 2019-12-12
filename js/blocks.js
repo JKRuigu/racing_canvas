@@ -3,7 +3,7 @@ createRandomX = ()=>{
 	let ran = Math.floor(Math.random()*xR); //generate random number from 0 -390;
 	let ran2 = ran -(ran%20); //creates a number divisible by 10;
 	ran2 = ran2 <mX? mX:ran2 //checks wheather is below the margin(m);
-	console.log(ran2)
+	// console.log(ran2)
 	return ran2;
 }
 
