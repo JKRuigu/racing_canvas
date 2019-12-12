@@ -19,11 +19,16 @@ display(x,data);
 
 
 generateBlock(x,num);
-startGame = ()=>{
-	var myTimer = setInterval(()=>{
-	
-	},1000);
+// blocks = [];
+
+for (var i = 0; i < num; i++) {
+	ctx.clearRect(blocks[i].x,blocks[i].y,20,20);
 }
+// startGame = ()=>{
+// 	var myTimer = setInterval(()=>{
+	
+// 	},1000);
+// }
 
 document.addEventListener('keydown', function(e) {
     setKey(e, true);

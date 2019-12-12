@@ -13,16 +13,10 @@ createRandomY = ()=>{
 	return ran2;
 }
 
-displayBlocks =(x,n,blocks)=>{
-	for(i=0; i<n;i++){
-		// console.log(blocks[i])
-		display(x,[blocks[i]]);
-	}	
-}
 
 generateBlock = (x,n)=>{
 	for(i=0; i<n;i++){
 		blocks.push({"x":createRandomX(),"y":createRandomY()});
 	}
-	displayBlocks(x,n,blocks);
+	// displayBlocks(x,n,blocks);
 }
