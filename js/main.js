@@ -14,31 +14,43 @@ var speed = 10;
 var blocks = [];
 var num = 10;
 
+
+// var img = new Image();
+// img.src = "./img/player.png";
+
+
+var img = new Image();
+img.src = "./img/enemy.png";
+
+
 ctx.fillRect(mX,mY,sizeX,sizeY);
 display(x,data);
 
-blocks.push({"x":createRandomX(),"y":40});
-
-setInterval(()=>{
-	if (blocks.length <10) {
-		blocks.push({"x":createRandomX(),"y":40});
-	}
-	if (blocks.length >0) {
-	blocks = blocks.filter((x,i)=>blocks[i].y <530);
-
-	}
-	// console.log(blcks);
-},7000);
+blocks.push({"x":createRandomX(),"y":50});
+img.onload=function() {
+	setInterval(()=>{
+		if (blocks.length <10) {
+			blocks.push({"x":createRandomX(),"y":50});
+		}
+		// console.log(blcks);
+	},3000);
+	// ctx.drawImage(img, 0,10,15,35,20,20,20,20);//display dark green green;
+}
 
 // for (var i = 0; i < num; i++) {
 // 	ctx.clearRect(blocks[i].x,blocks[i].y,20,20);
 // }
 
+
+img.onload=function() {
 var myTimer = setInterval(()=>{
-	// console.log("HELLO");
 	var tempBlocks =[];
 	for (var i = 0; i <blocks.length; i++) {
 		tempBlocks.push({"x":blocks[i].x,"y":(blocks[i].y+2)});	
+	}
+
+	if (blocks.length >0) {
+		blocks = blocks.filter((x,i)=>blocks[i].y <540);
 	}
 	ctx.fillRect(mX,mY,sizeX,sizeY);
 	display(20,data);
@@ -47,7 +59,7 @@ var myTimer = setInterval(()=>{
 		if (blocks[i].y >500) {
 			if (data[0].x == blocks[i].x) {
 				clearInterval(myTimer);
-				console.log("GAME OVER!");
+				console.log("GAME OVER!",data[0].y,blocks[i].y);
 			}
 		}
 		
@@ -55,9 +67,12 @@ var myTimer = setInterval(()=>{
 	blocks = tempBlocks;
 	
 	for (var i = 0; i < blocks.length; i++) {
-		ctx.clearRect(blocks[i].x,blocks[i].y,20,20);
+		// ctx.drawImage(img, 70,0,25,30,blocks[i].x,blocks[i].y,20,20)
+		ctx.drawImage(img, 0,10,15,35,blocks[i].x,blocks[i].y,20,20)
+		// ctx.clearRect(blocks[i].x,blocks[i].y,20,20);
 	}	
-},50);
+},500);
+}
 
 document.addEventListener('keydown', function(e) {
     setKey(e, true);
