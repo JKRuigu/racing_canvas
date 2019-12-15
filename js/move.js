@@ -14,5 +14,4 @@ move = (bool)=>{
 			display(x,data);
 		}
 	}
-	console.log(data[0].x);
 }
