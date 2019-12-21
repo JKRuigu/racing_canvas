@@ -8,10 +8,13 @@ setKey = (event,status)=>{
 	if (status) {
 		switch(code){
 			case 37:
-				move(false);
+				move(0,false);
 				break;
 			case 39:
-				move(true);
+				move(0,true);
+				break;
+			case 38:
+				move(1,true);
 				break;
 			default:
 				console.log("Invalid");
